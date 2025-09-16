@@ -1,0 +1,32 @@
+---
+title: "Diamonds Plot"
+format: html
+echo: true
+---
+
+## Diamonds
+
+This project demonstrates the use of **Quarto** and **R** to generate reproducible reports. Using the `ggplot2` package, we visualize insights from the built-in **diamonds** dataset, which contains detailed characteristics of nearly 54,000 diamonds, including their carat, cut, color, clarity, and price.
+
+The output includes both the **current system date and time** to ensure that every report reflects when it was generated, highlighting the reproducibility and dynamic nature of Quarto documents.
+
+```{r}
+# Load libraries
+library(ggplot2)
+
+# Print current date and time
+cat("Report generated on:", Sys.time(), "\n")
+
+# Plot using diamonds dataset
+ggplot(diamonds, aes(x = carat, y = price, color = cut)) +
+    geom_point(alpha = 0.5) +
+    labs(title = "Diamonds: Price vs Carat",
+         subtitle = paste("Generated on", Sys.time()),
+         x = "Carat",
+         y = "Price")
+
+```
+
+```{r}
+
+```
